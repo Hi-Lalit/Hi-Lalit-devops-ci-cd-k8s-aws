@@ -1,0 +1,51 @@
+---
+- name: Install Jenkins on AWS EC2
+  hosts: jenkins
+  become: yes
+
+  tasks:
+    - name: Update apt packages
+      apt:
+        update_cache: yes
+
+    - name: Install Java (Jenkins dependency)
+      apt:
+        name: openjdk-17-jdk
+        state: present        
+
+    - name: Add Jenkins GPG key
+      apt_key:
+        url: https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+        state: present
+
+    - name: Add Jenkins repository
+      apt_repository:
+        repo: deb https://pkg.jenkins.io/debian-stable binary/
+        state: present
+
+    - name: Install Jenkins
+      apt:
+        name: jenkins
+        state: present
+
+    - name: Start and enable Jenkins service
+      systemd:
+        name: jenkins
+        state: started
+        enabled: yes
+    
+    - name: check version of jenkins
+      command: jenkins --version
+      register: jenkins_version
+
+    - name: Display Jenkins version
+      debug:
+        msg: "Jenkins version is {{ jenkins_version.stdout }}"
+
+    - name: check java version
+      command: java -version
+      register: java_version
+      
+    - name: Display Java version
+      debug:
+        msg: "Java version is {{ java_version }}"

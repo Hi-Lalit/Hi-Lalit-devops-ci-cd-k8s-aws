@@ -13,5 +13,6 @@ def products():
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
 
-# source venv/bin/activate
+# source env/bin/activate
+# deactivate
 # flask run --port=5000

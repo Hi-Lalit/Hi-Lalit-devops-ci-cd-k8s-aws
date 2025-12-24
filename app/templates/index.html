@@ -3,9 +3,337 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lalit Kumar Gautam - DevOps Resume</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        body {
+            font-family: "Times New Roman", Times, serif;
+            color: #333;
+            max-width: 210mm;
+            height: 297mm;
+            margin: 0 auto;
+            /* Adjusted padding to ensure it fits nicely */
+            padding: 12mm 18mm; 
+            line-height: 1.35;
+            font-size: 11px;
+            box-sizing: border-box;
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        h1 {
+            font-family: "Courier New", Courier, monospace;
+            text-transform: uppercase;
+            font-size: 28px;
+            font-weight: normal;
+            letter-spacing: 2px;
+            margin: 0 0 8px 0;
+            color: #2c3e50;
+        }
+        .contact-info {
+            font-size: 11.5px;
+            margin-bottom: 10px;
+        }
+        .contact-info a {
+            color: #333;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+            color: #000;
+        }
+        .contact-info span {
+            margin: 0 4px;
+        }
+
+        /* Section Dividers with Lines - FIXED */
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 12px 0 8px 0;
+        }
+        .line {
+            flex-grow: 1;
+            height: 0;
+            /* CHANGED: Use border instead of background-color to ensure printing */
+            border-top: 1px solid #333; 
+        }
+        .section-title {
+            padding: 0 12px;
+            font-weight: bold;
+            font-size: 14px;
+            color: #2c3e50;
+            font-family: "Courier New", Courier, monospace; 
+            text-transform: uppercase;
+        }
+
+        /* Content Styles */
+        p {
+            margin: 0 0 8px 0;
+            text-align: justify;
+        }
+
+        /* Two Column List for Skills */
+        .skills-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .skills-column {
+            width: 49%;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 18px;
+            margin: 4px 0 8px 0;
+        }
+        li {
+            margin-bottom: 3px;
+        }
+
+        /* Projects */
+        .project-item {
+            margin-bottom: 10px;
+        }
+        .project-title {
+            text-align: center;
+            font-weight: normal;
+            margin-bottom: 4px;
+            font-size: 12px;
+            color: #000;
+            text-decoration: underline;
+        }
+
+        /* Professional Experience */
+        .job-header {
+            display: flex;
+            justify-content: center;
+            font-size: 12px;
+            margin-bottom: 4px;
+            color: #444;
+        }
+        .job-role {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        /* Education */
+        .education-item {
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        /* Languages - Simplified for cleaner printing */
+        .languages-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8px;
+        }
+        .language-box {
+            width: 48%;
+        }
+        .lang-header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            margin-bottom: 3px;
+            font-size: 11px;
+        }
+        .lang-bar {
+            height: 0;
+            border-top: 3px solid #2c3e50; /* Fixed bar to print */
+            width: 100%;
+            margin-bottom: 3px;
+        }
+        .lang-level {
+            font-size: 10.5px;
+            color: #555;
+        }
+
+        /* Certifications */
+        .cert-item {
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        /* Print Specifics */
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
 </head>
 <body>
-    
+
+    <header>
+        <h1>Lalit Kumar Gautam</h1>
+        <div class="contact-info">
+            <a href="mailto:hi.lkgautam@gmail.com">hi.lkgautam@gmail.com</a> 
+            <span>|</span> 
+            +91-9368031380 
+            <span>|</span> 
+            Bengaluru, Karnataka 
+            <span>|</span> 
+            <a href="https://www.linkedin.com/in/hi-lalit/" target="_blank">linkedin.com/in/hi-lalit</a> 
+            <span>|</span> 
+            <a href="https://github.com/Hi-Lalit" target="_blank">github.com/Hi-Lalit</a>
+        </div>
+    </header>
+
+    <div class="section-header">
+        <div class="line"></div>
+        <div class="section-title">Professional Summary</div>
+        <div class="line"></div>
+    </div>
+    <p>
+        Enthusiastic and detail-oriented Junior DevOps Engineer with a strong foundation in CI/CD practices and cloud technologies. Eager to enhance software development and deployment processes through automation, version control, and collaboration tools. Dedicated to ongoing learning and growth within a dynamic team environment to enhance operational efficiency and drive project success.
+    </p>
+
+    <div class="section-header">
+        <div class="line"></div>
+        <div class="section-title">Technical Skills</div>
+        <div class="line"></div>
+    </div>
+    <div class="skills-container">
+        <div class="skills-column">
+            <ul>
+                <li><b>Cloud platforms:</b> AWS (EC2, S3, IAM, VPC)</li>
+                <li><b>CI/CD tools:</b> Jenkins, Azure CI/CD</li>
+                <li><b>Version control:</b> Git and GitHub</li>
+                <li><b>Configuration management:</b> Ansible (playbooks, roles, Jinja2)</li>
+            </ul>
+        </div>
+        <div class="skills-column">
+            <ul>
+                <li><b>Infrastructure as code:</b> Terraform</li>
+                <li><b>Containerization:</b> Docker, Kubernetes (pods, services, deployments)</li>
+                <li><b>Operating systems:</b> Ubuntu</li>
+                <li><b>Scripting:</b> Bash/shell scripting, Python (basic)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section-header">
+        <div class="line"></div>
+        <div class="section-title">Key DevOps Projects</div>
+        <div class="line"></div>
+    </div>
+
+    <div class="project-item">
+        <div class="project-title">Automated CI/CD pipeline for Java application (independent project)</div>
+        <ul>
+            <li>Designed and implemented a One-Click Deployment pipeline using Jenkins, GitHub, and Maven to deploy a Java web application to a Tomcat server.</li>
+            <li>Integrated GitHub webhooks to trigger builds automatically upon code commits, ensuring continuous integration.</li>
+            <li>Utilized both GUI and declarative pipeline syntax (Jenkinsfile) to standardize the build and deploy process.</li>
+            <li><b>Tech stack:</b> Jenkins, GitHub, Maven, Tomcat</li>
+        </ul>
+    </div>
+
+    <div class="project-item">
+        <div class="project-title">Ansible configuration management and web server deployment (independent project)</div>
+        <ul>
+            <li>Orchestrated the automated deployment of multiple static websites to Apache2 web servers on AWS EC2 instances from a local control node.</li>
+            <li>Implemented Ansible tags to granularly control playbook execution, enabling specific tasks such as installing or uninstalling websites without running the entire configuration.</li>
+            <li>Managed dynamic inventory files to scale configuration across multiple target nodes efficiently.</li>
+            <li><b>Tech Stack:</b> Ansible, AWS EC2, Apache2, Linux, SSH, VS-Code IDE</li>
+        </ul>
+    </div>
+
+    <div class="project-item">
+        <div class="project-title">Infrastructure provisioning with IaC (independent project)</div>
+        <ul>
+            <li>Provisioned a secure and scalable AWS infrastructure using Terraform, automated the creation of custom VPCs and subnets to isolate network resources, managed EC2 instances and S3 buckets for storage.</li>
+            <li><b>Tech Stack:</b> Terraform, AWS, HCL</li>
+        </ul>
+    </div>
+
+    <div class="section-header">
+        <div class="line"></div>
+        <div class="section-title">Professional Experience</div>
+        <div class="line"></div>
+    </div>
+
+    <div class="project-item">
+        <div class="job-header">
+            <span class="job-role">Quality Engineer</span> &nbsp;|&nbsp; Designco Pvt. Ltd. &nbsp;|&nbsp; Aug 2024 - Sept 2025
+        </div>
+        <ul>
+            <li>Analyzed failure reports to identify root causes of defects in products.</li>
+            <li>Created detailed documentation for quality control procedures and protocols.</li>
+        </ul>
+    </div>
+
+    <div class="project-item">
+        <div class="job-header">
+            <span class="job-role">Production Engineer</span> &nbsp;|&nbsp; Victora Industry Pvt. Ltd. &nbsp;|&nbsp; April 2018 - July 2024
+        </div>
+        <ul>
+            <li>Analyzed production data to identify areas for improvement in workflow.</li>
+            <li>Designed and implemented production processes to enhance efficiency and quality.</li>
+            <li>Performed root cause analysis on production issues, developed corrective actions, and monitored results.</li>
+        </ul>
+    </div>
+
+    <div class="project-item">
+        <div class="job-header">
+            <span class="job-role">Executive Engineer</span> &nbsp;|&nbsp; MM Educational Pvt. Ltd. &nbsp;|&nbsp; June 2015 - March 2018
+        </div>
+        <ul>
+            <li>Led strategic planning sessions to align educational programs with market needs.</li>
+        </ul>
+    </div>
+
+    <div class="section-header">
+        <div class="line"></div>
+        <div class="section-title">Education</div>
+        <div class="line"></div>
+    </div>
+    <div class="education-item">
+        Moradabad Institute of Technology | Moradabad | 2010 - 2014<br>
+        <b>B.Tech:</b> Electrical Engineering
+    </div>
+
+    <div class="section-header">
+        <div class="line"></div>
+        <div class="section-title">Languages</div>
+        <div class="line"></div>
+    </div>
+    <div class="languages-container">
+        <div class="language-box">
+            <div class="lang-header">
+                <span>English:</span>
+                <span>C2</span>
+            </div>
+            <div class="lang-bar"></div>
+            <div class="lang-level">Proficient (C2)</div>
+        </div>
+        <div class="language-box">
+            <div class="lang-header">
+                <span>Hindi:</span>
+                <span>C2</span>
+            </div>
+            <div class="lang-bar"></div>
+            <div class="lang-level">Proficient (C2)</div>
+        </div>
+    </div>
+
+    <div class="section-header">
+        <div class="line"></div>
+        <div class="section-title">Certifications</div>
+        <div class="line"></div>
+    </div>
+    <div class="cert-item">
+        DevOps Certified By DevOps Academy Pvt Ltd, Bengaluru
+    </div>
+
 </body>
 </html>
