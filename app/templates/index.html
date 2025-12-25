@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utkarsh Institute of Technology | Future of Engineering</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9', // Sky blue
+                            600: '#0284c7',
+                            800: '#075985',
+                            900: '#0c4a6e', // Deep Navy
+                        },
+                        accent: {
+                            500: '#f97316', // Orange
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Animations */
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-bg {
+            background-image: linear-gradient(rgba(12, 74, 110, 0.9), rgba(12, 74, 110, 0.8)), url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 antialiased bg-gray-50">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <!-- Logo -->
+                    <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                        <i class="fa-solid fa-atom text-brand-600 text-3xl"></i>
+                        <div>
+                            <h1 class="text-2xl font-bold text-brand-900 tracking-tight">UIT</h1>
+                            <p class="text-xs text-gray-500 font-semibold uppercase tracking-widest">Utkarsh Institute</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-600 hover:text-brand-600 font-medium transition">Home</a>
+                    <a href="#about" class="text-gray-600 hover:text-brand-600 font-medium transition">About</a>
+                    <a href="#courses" class="text-gray-600 hover:text-brand-600 font-medium transition">Programs</a>
+                    <a href="#achievements" class="text-gray-600 hover:text-brand-600 font-medium transition">Achievements</a>
+                    <a href="#contact" class="bg-brand-600 text-white px-5 py-2.5 rounded-full font-medium hover:bg-brand-700 transition shadow-lg shadow-brand-500/30">Apply Now</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="flex items-center md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-brand-600 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-gray-50">Home</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-gray-50">About</a>
+                <a href="#courses" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-gray-50">Programs</a>
+                <a href="#achievements" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-gray-50">Achievements</a>
+                <a href="#contact" class="block px-3 py-2 mt-4 text-center rounded-md text-base font-bold bg-brand-600 text-white hover:bg-brand-700">Apply Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg h-screen flex items-center justify-center pt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="fade-in-up">
+                <span class="bg-brand-500/20 text-brand-100 py-1 px-4 rounded-full text-sm font-semibold border border-brand-500/30 uppercase tracking-wide">
+                    Admissions Open for 2025
+                </span>
+                <h1 class="mt-6 text-4xl tracking-tight font-extrabold text-white sm:text-5xl md:text-7xl">
+                    Engineering the <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-300 to-white">Future of Tech</span>
+                </h1>
+                <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-300">
+                    Join Utkarsh Institute of Technology. Where innovation meets education in AI, Robotics, and Computer Science.
+                </p>
+                <div class="mt-8 flex justify-center gap-4">
+                    <a href="#courses" class="px-8 py-3 border border-transparent text-base font-medium rounded-md text-brand-900 bg-white hover:bg-gray-100 md:py-4 md:text-lg md:px-10 transition shadow-xl">
+                        Explore Courses
+                    </a>
+                    <a href="#contact" class="px-8 py-3 border border-white text-base font-medium rounded-md text-white hover:bg-white/10 md:py-4 md:text-lg md:px-10 transition">
+                        Campus Tour
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features / About Snippet -->
+    <section id="about" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-base text-brand-600 font-semibold tracking-wide uppercase">Why Choose UIT?</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Excellence in Technical Education
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="p-6 bg-gray-50 rounded-2xl border border-gray-100 hover:border-brand-200 transition text-center group">
+                    <div class="w-14 h-14 bg-brand-100 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-microchip text-brand-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900">Modern Labs</h3>
+                    <p class="mt-2 text-gray-600">State-of-the-art infrastructure featuring specialized IoT, Robotics, and AI laboratories.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="p-6 bg-gray-50 rounded-2xl border border-gray-100 hover:border-brand-200 transition text-center group">
+                    <div class="w-14 h-14 bg-brand-100 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-user-graduate text-brand-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900">Expert Faculty</h3>
+                    <p class="mt-2 text-gray-600">Learn from industry veterans and PhD holders from top institutions across the globe.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="p-6 bg-gray-50 rounded-2xl border border-gray-100 hover:border-brand-200 transition text-center group">
+                    <div class="w-14 h-14 bg-brand-100 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-briefcase text-brand-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900">100% Placement Support</h3>
+                    <p class="mt-2 text-gray-600">Dedicated placement cell ensuring students land high-paying roles in top MNCs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Our Tech Programs</h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+                    Curriculum designed for the Industry 4.0 revolution.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Course 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover transition duration-300 flex flex-col">
+                    <div class="h-48 bg-gradient-to-r from-purple-600 to-indigo-600 flex items-center justify-center">
+                        <i class="fa-solid fa-brain text-white text-6xl"></i>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">B.Tech</div>
+                        <h3 class="block mt-1 text-xl leading-tight font-bold text-black">Artificial Intelligence & ML</h3>
+                        <p class="mt-2 text-gray-500 flex-1">Master neural networks, deep learning, and predictive analytics. Build the smart systems of tomorrow.</p>
+                        <div class="mt-4 flex items-center justify-between">
+                            <span class="text-sm text-gray-600"><i class="fa-regular fa-clock mr-1"></i> 4 Years</span>
+                            <button class="text-indigo-600 font-semibold hover:text-indigo-800">Details &rarr;</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 2 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover transition duration-300 flex flex-col">
+                    <div class="h-48 bg-gradient-to-r from-blue-600 to-cyan-500 flex items-center justify-center">
+                        <i class="fa-solid fa-code text-white text-6xl"></i>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <div class="uppercase tracking-wide text-sm text-blue-500 font-semibold">B.Tech</div>
+                        <h3 class="block mt-1 text-xl leading-tight font-bold text-black">Computer Science (CSE)</h3>
+                        <p class="mt-2 text-gray-500 flex-1">Core software engineering, algorithms, full-stack development, and cloud computing architectures.</p>
+                        <div class="mt-4 flex items-center justify-between">
+                            <span class="text-sm text-gray-600"><i class="fa-regular fa-clock mr-1"></i> 4 Years</span>
+                            <button class="text-blue-600 font-semibold hover:text-blue-800">Details &rarr;</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 3 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover transition duration-300 flex flex-col">
+                    <div class="h-48 bg-gradient-to-r from-orange-500 to-red-500 flex items-center justify-center">
+                        <i class="fa-solid fa-microchip text-white text-6xl"></i>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <div class="uppercase tracking-wide text-sm text-orange-500 font-semibold">B.Tech</div>
+                        <h3 class="block mt-1 text-xl leading-tight font-bold text-black">Embedded Systems & VLSI</h3>
+                        <p class="mt-2 text-gray-500 flex-1">Dive into chip design, microcontrollers, and IoT hardware integration. Power the connected world.</p>
+                        <div class="mt-4 flex items-center justify-between">
+                            <span class="text-sm text-gray-600"><i class="fa-regular fa-clock mr-1"></i> 4 Years</span>
+                            <button class="text-orange-600 font-semibold hover:text-orange-800">Details &rarr;</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 4 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover transition duration-300 flex flex-col">
+                    <div class="h-48 bg-gradient-to-r from-emerald-500 to-teal-500 flex items-center justify-center">
+                        <i class="fa-solid fa-robot text-white text-6xl"></i>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <div class="uppercase tracking-wide text-sm text-emerald-500 font-semibold">B.Tech</div>
+                        <h3 class="block mt-1 text-xl leading-tight font-bold text-black">Robotics & Automation</h3>
+                        <p class="mt-2 text-gray-500 flex-1">Mechatronics, sensors, and industrial automation. Design intelligent machines.</p>
+                        <div class="mt-4 flex items-center justify-between">
+                            <span class="text-sm text-gray-600"><i class="fa-regular fa-clock mr-1"></i> 4 Years</span>
+                            <button class="text-emerald-600 font-semibold hover:text-emerald-800">Details &rarr;</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 5 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover transition duration-300 flex flex-col">
+                    <div class="h-48 bg-gradient-to-r from-slate-700 to-gray-800 flex items-center justify-center">
+                        <i class="fa-solid fa-shield-halved text-white text-6xl"></i>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <div class="uppercase tracking-wide text-sm text-gray-600 font-semibold">B.Tech</div>
+                        <h3 class="block mt-1 text-xl leading-tight font-bold text-black">Cyber Security</h3>
+                        <p class="mt-2 text-gray-500 flex-1">Network security, ethical hacking, and digital forensics. Protect the digital infrastructure.</p>
+                        <div class="mt-4 flex items-center justify-between">
+                            <span class="text-sm text-gray-600"><i class="fa-regular fa-clock mr-1"></i> 4 Years</span>
+                            <button class="text-gray-800 font-semibold hover:text-gray-900">Details &rarr;</button>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Course 6 -->
+                 <div class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover transition duration-300 flex flex-col">
+                    <div class="h-48 bg-gradient-to-r from-pink-500 to-rose-500 flex items-center justify-center">
+                        <i class="fa-solid fa-database text-white text-6xl"></i>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <div class="uppercase tracking-wide text-sm text-pink-500 font-semibold">B.Tech</div>
+                        <h3 class="block mt-1 text-xl leading-tight font-bold text-black">Data Science</h3>
+                        <p class="mt-2 text-gray-500 flex-1">Big data analytics, visualization, and statistical modeling. Turn data into decisions.</p>
+                        <div class="mt-4 flex items-center justify-between">
+                            <span class="text-sm text-gray-600"><i class="fa-regular fa-clock mr-1"></i> 4 Years</span>
+                            <button class="text-pink-600 font-semibold hover:text-pink-800">Details &rarr;</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="py-16 bg-brand-900 text-white relative overflow-hidden">
+        <!-- Abstract Background Shapes -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10">
+            <i class="fa-solid fa-network-wired text-9xl absolute -top-10 -left-10"></i>
+            <i class="fa-solid fa-code text-9xl absolute bottom-10 right-10"></i>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold">Our Achievements</h2>
+                <p class="mt-2 text-brand-200">Milestones that define our legacy.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="p-4">
+                    <div class="text-4xl md:text-5xl font-bold text-accent-500 mb-2">95%</div>
+                    <div class="text-sm md:text-base font-medium text-gray-300">Placement Record</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-4xl md:text-5xl font-bold text-accent-500 mb-2">42 LPA</div>
+                    <div class="text-sm md:text-base font-medium text-gray-300">Highest Package</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-4xl md:text-5xl font-bold text-accent-500 mb-2">50+</div>
+                    <div class="text-sm md:text-base font-medium text-gray-300">Patents Filed</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-4xl md:text-5xl font-bold text-accent-500 mb-2">100+</div>
+                    <div class="text-sm md:text-base font-medium text-gray-300">Startups Incubated</div>
+                </div>
+            </div>
+
+            <div class="mt-12 bg-white/10 rounded-xl p-8 backdrop-blur-sm">
+                <div class="flex flex-col md:flex-row items-center gap-6">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Award" class="w-32 h-32 object-cover rounded-lg shadow-lg">
+                    <div class="text-left">
+                        <h3 class="text-xl font-bold text-white">Awarded "Best Tech Institute Innovation Hub 2024"</h3>
+                        <p class="mt-2 text-brand-200">Utkarsh Institute of Technology was recognized by the National Education Council for excellence in implementing AI-driven curriculum and student innovation labs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contact" class="bg-gray-900 text-gray-300 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Brand Info -->
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <i class="fa-solid fa-atom text-brand-500 text-2xl"></i>
+                        <span class="text-xl font-bold text-white">UIT</span>
+                    </div>
+                    <p class="text-sm text-gray-400">
+                        Utkarsh Institute of Technology is dedicated to nurturing the next generation of engineers and innovators.
+                    </p>
+                    <div class="mt-6 flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fa-brands fa-twitter text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fa-brands fa-linkedin text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fa-brands fa-instagram text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fa-brands fa-youtube text-xl"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-white font-semibold mb-4 uppercase text-sm tracking-wider">Quick Links</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#about" class="hover:text-brand-500 transition">About Us</a></li>
+                        <li><a href="#courses" class="hover:text-brand-500 transition">Undergraduate Programs</a></li>
+                        <li><a href="#courses" class="hover:text-brand-500 transition">Postgraduate Programs</a></li>
+                        <li><a href="#achievements" class="hover:text-brand-500 transition">Placements</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-white font-semibold mb-4 uppercase text-sm tracking-wider">Contact Us</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-location-dot mt-1 mr-3 text-brand-500"></i>
+                            <span>Tech Park Campus, Innovation Road, <br>Electronic City, India - 560100</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa-solid fa-phone mr-3 text-brand-500"></i>
+                            <span>+91 98765 43210</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa-solid fa-envelope mr-3 text-brand-500"></i>
+                            <span>admissions@uit.edu</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-sm">
+                <p>&copy; 2025 Utkarsh Institute of Technology. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-lg', 'bg-white/95', 'backdrop-blur-sm');
+            } else {
+                nav.classList.remove('shadow-lg', 'bg-white/95', 'backdrop-blur-sm');
+            }
+        });
+    </script>
+</body>
+</html>

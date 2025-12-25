@@ -1,0 +1,17 @@
+- name: Deploy Flask App Container  
+  hosts: jenkins
+  become: yes
+  tasks:
+    - name: Pull latest Docker image
+      docker_image:
+        name: gautam009/flask-app
+        source: pull
+
+    - name: Run container
+      docker_container:
+        name: flask-app
+        image: gautam009/flask-app
+        state: started
+        ports:
+          - "5000:5000"
+        restart_policy: always
