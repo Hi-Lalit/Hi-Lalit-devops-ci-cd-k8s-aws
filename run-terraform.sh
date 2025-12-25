@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # This script initializes Terraform, validates the configuration,
 

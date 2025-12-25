@@ -7,15 +7,6 @@ pipeline {
 
     stages {
 
-        stage('Terraform Apply') {
-            steps {
-                
-                    // Make Terraform executable
-                    sh 'chmod +x run-terraform.sh'
-                    sh './run-terraform.sh'                
-            }
-        }
-
         stage('Ansible Setup') {
             steps {                
                     // Make Ansible scripts executable
