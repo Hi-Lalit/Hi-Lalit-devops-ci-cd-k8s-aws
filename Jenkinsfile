@@ -10,7 +10,8 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 dir('app') {
-                    sh "docker build -t flask-app ."
+                    // Build with proper namespace
+                    sh "docker build -t $DOCKER_IMAGE ."
                 }
             }
         }
@@ -24,13 +25,14 @@ pipeline {
                         passwordVariable: 'PASSWORD'
                     )
                 ]) {
+                    // Login and push using the correct image name
                     sh 'echo $PASSWORD | docker login -u $USERNAME --password-stdin'
-                    sh 'docker push flask-app'
+                    sh 'docker push $DOCKER_IMAGE'
                 }
             }
         }
 
-    }   // ✅ THIS WAS MISSING
+    }
 
     post {
         always {
