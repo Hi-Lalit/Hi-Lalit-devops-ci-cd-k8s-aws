@@ -1,8 +1,8 @@
 all:
   children:
-    webserver:
+    webservers:
       hosts:
         jenkins:
-          ansible_host: 13.217.170.123
+          ansible_host: 54.205.211.95
           ansible_user: ubuntu
           ansible_ssh_private_key_file: /home/gautam/.ssh/devops-key

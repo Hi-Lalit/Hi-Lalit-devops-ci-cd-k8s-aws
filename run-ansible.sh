@@ -25,9 +25,11 @@ EOF
 
 # Then it runs the Ansible playbooks to configure Jenkins and Docker.
 
-# cd ansible
+cd ansible
 
-# ansible all -i inventory.yml -m ping
+ansible all -i inventory.yml -m ping
 
 # ansible-playbook -i inventory.yml jenkins.yml
-# ansible-playbook -i inventory.yml docker.yml
+ansible-playbook -i inventory.yml docker.yml
+
+# ./run-ansible.sh
