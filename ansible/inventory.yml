@@ -3,6 +3,6 @@ all:
     webservers:
       hosts:
         jenkins:
-          ansible_host: 54.205.211.95
+          ansible_host: 3.84.103.205
           ansible_user: ubuntu
           ansible_ssh_private_key_file: /home/gautam/.ssh/devops-key
