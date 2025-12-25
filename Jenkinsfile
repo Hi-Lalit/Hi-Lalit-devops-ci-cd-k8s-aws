@@ -17,12 +17,20 @@ pipeline {
 
         stage('Push to Docker Hub') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                withCredentials([
+                    usernamePassword(
+                        credentialsId: 'dockerhub-creds',
+                        usernameVariable: 'USERNAME',
+                        passwordVariable: 'PASSWORD'
+                    )
+                ]) {
                     sh 'echo $PASSWORD | docker login -u $USERNAME --password-stdin'
-                    sh "docker push flask-app"
+                    sh 'docker push flask-app'
                 }
             }
         }
+
+    }   // ✅ THIS WAS MISSING
 
     post {
         always {
