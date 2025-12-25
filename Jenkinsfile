@@ -7,14 +7,6 @@ pipeline {
 
     stages {
 
-        stage('Ansible Setup') {
-            steps {                
-                    // Make Ansible scripts executable
-                    sh 'chmod +x run-ansible.sh'
-                    sh './run-ansible.sh'                
-            }
-        }
-
         stage('Build Docker Image') {
             steps {
                 dir('app') {
@@ -31,15 +23,6 @@ pipeline {
                 }
             }
         }
-
-        stage('Deploy Flask App to EC2') {
-            steps {
-                dir('ansible') {
-                    sh 'ansible-playbook -i inventory.yml deploy.yml'
-                }
-            }
-        }
-    }
 
     post {
         always {
