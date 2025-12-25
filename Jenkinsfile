@@ -9,21 +9,18 @@ pipeline {
 
         stage('Terraform Apply') {
             steps {
-                dir('terraform-aws-infra') {
+                
                     // Make Terraform executable
                     sh 'chmod +x run-terraform.sh'
-                    sh './run-terraform.sh'
-                }
+                    sh './run-terraform.sh'                
             }
         }
 
         stage('Ansible Setup') {
-            steps {
-                dir('ansible') {
+            steps {                
                     // Make Ansible scripts executable
                     sh 'chmod +x run-ansible.sh'
-                    sh './run-ansible.sh'
-                }
+                    sh './run-ansible.sh'                
             }
         }
 

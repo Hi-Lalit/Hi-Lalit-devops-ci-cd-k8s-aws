@@ -4,10 +4,10 @@
 
 cd terraform-aws-infra
 
-# terraform init
-# terraform validate
-# terraform apply -auto-approve
+terraform init
+terraform validate
+terraform apply -auto-approve
 
-terraform destroy -auto-approve
+# terraform destroy -auto-approve
 
 # ./run-terraform.sh
