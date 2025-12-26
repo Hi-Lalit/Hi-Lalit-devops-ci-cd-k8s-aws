@@ -3,14 +3,44 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = "gautam009/flask-app:latest"
+        VENV = "venv"
     }
 
     stages {
 
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Python Build (Dependencies)') {
+            steps {
+                dir('app') {
+                    sh '''
+                        python3 -m venv $VENV
+                        . $VENV/bin/activate
+                        pip install --upgrade pip
+                        pip install -r requirements.txt
+                    '''
+                }
+            }
+        }
+
+        stage('Test (PyTest)') {
+            steps {
+                dir('app') {
+                    sh '''
+                        . $VENV/bin/activate
+                        pytest -v
+                    '''
+                }
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 dir('app') {
-                    // Build with proper namespace
                     sh "docker build -t $DOCKER_IMAGE ."
                 }
             }
@@ -25,19 +55,28 @@ pipeline {
                         passwordVariable: 'PASSWORD'
                     )
                 ]) {
-                    // Login and push using the correct image name
-                    sh 'echo $PASSWORD | docker login -u $USERNAME --password-stdin'
-                    sh 'docker push $DOCKER_IMAGE'
+                    sh '''
+                        echo $PASSWORD | docker login -u $USERNAME --password-stdin
+                        docker push $DOCKER_IMAGE
+                    '''
                 }
             }
         }
-
     }
 
     post {
         always {
-            echo 'Cleaning up unused Docker images...'
-            sh 'docker image prune -f'
+            echo 'Cleaning up...'
+            sh '''
+                docker image prune -f
+                rm -rf app/venv
+            '''
+        }
+        success {
+            echo 'Pipeline completed successfully ✅'
+        }
+        failure {
+            echo 'Pipeline failed ❌'
         }
     }
 }

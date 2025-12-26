@@ -1,5 +1,9 @@
 #!/bin/bash
 
+set -e
+
+# This script initializes Terraform, validates the configuration,
+
 # getting the public IP of the Jenkins EC2 instance from Terraform output 
 # and creating the Ansible inventory file dynamically.
 
@@ -7,7 +11,7 @@ cd /home/gautam/devops-ci-cd-k8s-platform/terraform-aws-infra
 
 IP=$(terraform output -raw jenkins_public_ip)
 
-echo "jenkins_public_ip=${IP}" > ansible/ec2_ip.env
+echo "jenkins_public_ip=${IP}" > ec2_ip.env
 
 cd /home/gautam/devops-ci-cd-k8s-platform/ansible
 
@@ -25,7 +29,7 @@ EOF
 
 # Then it runs the Ansible playbooks to configure Jenkins and Docker.
 
-cd ansible
+cd /home/gautam/devops-ci-cd-k8s-platform/ansible
 
 ansible all -i inventory.yml -m ping
 

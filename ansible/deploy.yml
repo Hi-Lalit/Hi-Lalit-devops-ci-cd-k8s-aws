@@ -15,3 +15,5 @@
         ports:
           - "5000:5000"
         restart_policy: always
+
+# ansible-playbook -i inventory.yml deploy.yml
